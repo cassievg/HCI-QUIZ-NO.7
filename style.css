@@ -1,0 +1,25 @@
+* {box-sizing:border-box}
+    .container {
+    width: 100%; 
+    background-color: #ddd; 
+}
+
+.skills {
+    text-align: right; 
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    color: white; 
+}
+
+.html {width: 90%; background-color: DodgerBlue;} 
+.css {width: 90%; background-color: DodgerBlue;} 
+.js {width: 10%; background-color: DodgerBlue;}
+.jv {width: 20%; background-color: DodgerBlue;}
+.py {width: 50%; background-color: DodgerBlue;}
+.sql {width: 60%; background-color: DodgerBlue;}
+
+.id {width: 90%; background-color: darksalmon;} 
+.eng {width: 90%; background-color: darksalmon;} 
+.cn {width: 10%; background-color: darksalmon;}
+.jp {width: 20%; background-color: darksalmon;}
+.kn {width: 50%; background-color: darksalmon;}

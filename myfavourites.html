@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <style>
+            .item_img {
+                width: 250px;
+                height: 250px;
+                object-fit: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="text-center h1">My Favourite Things - The Gallery</div>
+        <div class="text-center h3">A little extra to the 'about me', except it's a fully functional gallery! Feel free to explore and see some of the things I absolutely love</div>
+        <select class="form-select" aria-label="filter-select" id="selection">
+            <option selected value="all">Show All</option>
+        </select>
+        <div class="container">
+            <div class="row" id="images">
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script>
+            // This script is for initialize
+            const amt_imgs = {'cat':5, 'dog':5, 'bird':5, 'nature':5};
+            const categories = ['dog', 'cat', 'bird', 'nature'];
+            $(() => {
+                for (let category of categories) {
+                    for (let i = 1; i < amt_imgs[category] + 1; i++) {
+                        let img = $(`<img class='item_img'></img>`).attr('src', `${category}_${i}.jpeg`);
+                        let col = $(`<div class='col item_col ${category}'></div>`).append(img);
+                        $('#images').append(col);
+                    }
+
+                    let opt = $('<option></option>').val(category).text(category[0].toUpperCase() + category.slice(1));
+                    $('#selection').append(opt);
+                }
+            });
+        </script>
+        <script>
+            // This script is for filter
+            $(() => {
+                $('#selection').on('change', function () {
+                    const selected_category = $(this).val();
+                    if (selected_category === 'all') {
+                        $('.item_col').show();
+                    }
+                    else {
+                        $('.item_col').hide();
+                        $(`.item_col.${selected_category}`).show();
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
